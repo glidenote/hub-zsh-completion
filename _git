@@ -4449,6 +4449,44 @@ _git-stripspace () {
     '(-s --strip-comments)'{-s,--strip-comments}'[also strip lines starting with #]'
 }
 
+# HUB CUSTOM COMPLETION FUNCTIONS
+
+(( $+functions[_git-create] )) ||
+_git-create () {
+  _arguments \
+    '-p[create a private repository]' \
+    '-d[set the repository description]' \
+    '-h[set the homepage URL]'
+}
+
+(( $+functions[_git-browse] )) ||
+_git-browse () {
+  _arguments \
+    '-u[set USER and REPOSITORY (USER/REPOSITORY)]' \
+}
+
+(( $+functions[_git-compare] )) ||
+_git-compare () {
+  _arguments \
+    '-u[set USER]' \
+}
+
+(( $+functions[_git-fork] )) ||
+_git-fork () {
+  _arguments \
+    '--no-remote[ ]'
+}
+
+(( $+functions[_git-pull-request] )) ||
+_git-pull-request () {
+  _arguments \
+    '-f[skip check]' \
+    '-b[set BASE pull request]' \
+    '-h[set HEAD pull request]' \
+    '-i[set ISSUE number]' \
+}
+
+
 # INTERNAL GIT COMPLETION FUNCTIONS
 
 # Generic Helpers
