@@ -1471,6 +1471,7 @@ _git-submodule () {
         add:'add given repository as a submodule'
         status:'show the status of a submodule'
         init:'initialize a submodule'
+        deinit:'unregister a submodule'
         update:'update a submodule'
         summary:'show commit summary between given commit and working tree/index'
         foreach:'evaluate shell command in each checked-out submodule'
@@ -1503,6 +1504,11 @@ _git-submodule () {
         (init)
           _arguments -S \
             '(-q --quiet)'{-q,--quiet}'[suppress all output]' \
+            '*: :__git_ignore_line_inside_arguments __git_submodules' && ret=0
+          ;;
+        (deinit)
+          _arguments -S \
+            '(-f --force)'{-f,--force}'[remove submodule worktree even if local modifications are present]' \
             '*: :__git_ignore_line_inside_arguments __git_submodules' && ret=0
           ;;
         (update)
